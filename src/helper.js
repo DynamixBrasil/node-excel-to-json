@@ -30,8 +30,8 @@ module.exports = {
             for (z in worksheet) {
                 if (z[0] === '!') continue;
                 //parse out the column, row, and value
-                var col = z.substring(0, 1);
-                var row = parseInt(z.substring(1));
+                var col = z.substring(0, z.search(/\d/));
+                var row = parseInt(z.substring(col.length));
                 var value = worksheet[z].v;
 
                 //store header names
